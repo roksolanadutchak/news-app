@@ -1,23 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
+  const [greeting, setGreeting] = useState("");
+  type Greeting = string;
+  useEffect(() => {
+    axios.get<Greeting>('http://localhost:8000/ping',
+        {
+            headers: {
+                Accept: 'application/json',
+            },
+        }
+            )
+        .then(res => {
+            console.log(res.data);
+          setGreeting(res.data)
+
+        });
+  },[])
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+            {greeting}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
