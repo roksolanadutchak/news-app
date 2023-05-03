@@ -1,0 +1,31 @@
+@import "../variables/variable.scss";
+.wrapper {
+  border: 1px solid $zinc-color;
+  background-clip: padding-box;
+  border-radius: 20%;
+  .avatar {
+    background-color: $secondary-color;
+  }
+  .content {
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: $black;
+  }
+  .chip {
+    margin-right: 10px;
+    background-color: $blue;
+    color: $sky-white;
+  }
+  .button {
+    color: $primary-color;
+    font-weight: bold;
+    justify-self: end;
+  }
+  .button:hover {
+    background-color: $light-blue;
+  }
+}
+.wrapper:hover {
+  border: 5px transparent $zinc-color;
+}
+
